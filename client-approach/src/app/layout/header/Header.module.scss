@@ -1,0 +1,21 @@
+.header {
+  height: 50px;
+  padding: 10px 15px;
+  background-color: var(--header-background-clr);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid var(--border-clr);
+}
+
+.linkContainer {
+  display: flex;
+  width: 250px;
+  justify-content: space-between;
+}
+
+.elementsContainer {
+  display: flex;
+  width: 300px;
+  justify-content: space-between;
+}

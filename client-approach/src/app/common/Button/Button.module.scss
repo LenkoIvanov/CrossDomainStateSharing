@@ -1,0 +1,24 @@
+.button {
+  border-radius: 25px;
+  padding: 5px 10px;
+  width: 100%;
+}
+
+.primary {
+  background-color: var(--primary-clr);
+  color: var(--text-clr-inverted);
+
+  &:hover {
+    background-color: var(--primary-clr-hover);
+  }
+}
+
+// TODO --> Add a secondary style later
+.secondary {
+  background-color: var(--background-clr);
+  color: var(--primary-clr);
+
+  &:hover {
+    background-color: var(--border-clr);
+  }
+}

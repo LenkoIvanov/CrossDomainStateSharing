@@ -1,0 +1,6 @@
+@use "../styles/reset.module.scss";
+@use "../styles/tokens.module.scss";
+
+body {
+  background-color: var(--background-clr);
+}
