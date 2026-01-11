@@ -1,19 +1,18 @@
 :root {
-    --black: #1f2933;
-    --white: #ffffff;
-    --gray: #f5f6f8;
-    --dark-gray: #e5e7eb;
-    --blue: #2563eb;
-    --dark-blue: #1e4fd8;
+  --black: #1f2933;
+  --white: #ffffff;
+  --gray: #f5f6f8;
+  --dark-gray: #e5e7eb;
+  --blue: #2563eb;
+  --dark-blue: #1e4fd8;
 
+  --primary-clr: var(--blue);
+  --primary-clr-hover: var(--dark-blue);
+  --background-clr: var(--gray);
+  --secondary-background-clr: var(--white);
+  --border-clr: var(--dark-gray);
+  --text-clr: var(--black);
+  --text-clr-inverted: var(--white);
 
-    --primary-clr: var(--blue);
-    --primary-clr-hover: var(--dark-blue);
-    --background-clr: var(--gray);
-    --header-background-clr: var(--white);
-    --border-clr: var(--dark-gray);
-    --text-clr: var(--black);
-    --text-clr-inverted: var(--white);
+  --header-height: 50px;
 }
-
-

@@ -1,7 +1,12 @@
+import styles from "./Main.module.scss";
+import ProductGrid from "./ProductGrid/ProductGrid";
+import SideNavigation from "./SideNavigation/SideNavigation";
+
 const Main = () => {
   return (
-    <section>
-      <p>This is the main container.</p>
+    <section className={styles.mainContainer}>
+      <SideNavigation />
+      <ProductGrid />
     </section>
   );
 };
