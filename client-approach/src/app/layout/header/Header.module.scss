@@ -8,14 +8,26 @@
   border-bottom: 2px solid var(--border-clr);
 }
 
+.elementsContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 900px;
+  margin-right: 5rem;
+}
+
 .linkContainer {
   display: flex;
   width: 250px;
   justify-content: space-between;
 }
 
-.elementsContainer {
+.buttonContainer {
   display: flex;
   width: 300px;
-  justify-content: space-between;
+}
+
+.cartContainer {
+  margin-left: 1rem;
+  width: 100px;
 }
