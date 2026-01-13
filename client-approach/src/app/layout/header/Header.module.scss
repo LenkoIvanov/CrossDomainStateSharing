@@ -29,5 +29,24 @@
 
 .cartContainer {
   margin-left: 1rem;
-  width: 100px;
+  width: 150px;
+  position: relative;
+}
+
+.cartBtnContents {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+  &:hover {
+    .chevronIcon {
+      transform: rotate(-180deg);
+      transition: 300ms ease all;
+    }
+  }
+}
+
+.icon {
+  width: 1rem;
+  height: 1rem;
 }

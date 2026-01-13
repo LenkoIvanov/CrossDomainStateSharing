@@ -1,0 +1,27 @@
+.miniCartContainer {
+  position: absolute;
+  right: -20%;
+  padding: 10px 10px 12px;
+  border-radius: 8px;
+  background-color: var(--secondary-background-clr);
+  min-width: 350px;
+  z-index: 10;
+}
+
+.titleSection {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.icon {
+  width: 1rem;
+  height: 1rem;
+  cursor: pointer;
+}
+
+.productsContainer {
+  * + * {
+    margin-top: 1rem;
+  }
+}

@@ -21,4 +21,8 @@
   &:hover {
     background-color: var(--border-clr);
   }
+
+  &.isActive {
+    background-color: var(--border-clr);
+  }
 }
