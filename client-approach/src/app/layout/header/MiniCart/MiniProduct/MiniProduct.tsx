@@ -1,10 +1,10 @@
-import { Product } from "@/types/Product";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styles from "./MiniProduct.module.scss";
+import { CartItem } from "@/types/CartItem";
 
 interface MiniProductProps {
-  product: Product;
+  product: CartItem;
 }
 
 const MiniProduct = (props: MiniProductProps) => {

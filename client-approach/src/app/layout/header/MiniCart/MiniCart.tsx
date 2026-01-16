@@ -3,6 +3,8 @@ import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import styles from "./MiniCart.module.scss";
 import { products } from "@/app/resources/products";
 import MiniProduct from "./MiniProduct/MiniProduct";
+import { useSelector } from "react-redux";
+import { selectCartItems } from "@/store/cart/selectors";
 
 interface MiniCartProps {
   onClose: () => void;
@@ -10,6 +12,8 @@ interface MiniCartProps {
 
 const MiniCart = (props: MiniCartProps) => {
   const { onClose } = props;
+
+  const cartItems = useSelector(selectCartItems);
 
   return (
     <section className={styles.miniCartContainer}>
@@ -23,7 +27,7 @@ const MiniCart = (props: MiniCartProps) => {
       </div>
       <div className={styles.productsContainer}>
         {products.map((product) => (
-          <MiniProduct key={`mini-${product.id}`} product={product} />
+          <MiniProduct key={`mini-${product.id}`} product={cartItems[0]} />
         ))}
       </div>
     </section>
