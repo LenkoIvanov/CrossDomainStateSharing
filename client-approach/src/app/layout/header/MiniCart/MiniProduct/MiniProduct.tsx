@@ -1,4 +1,4 @@
-import { Product } from "@/app/types/Product";
+import { Product } from "@/types/Product";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styles from "./MiniProduct.module.scss";
