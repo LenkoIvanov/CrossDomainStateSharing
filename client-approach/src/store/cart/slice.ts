@@ -1,49 +1,56 @@
-import { CartItem } from "@/types/CartItem"
+import { CartItem } from "@/types/CartItem";
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 export interface CartState {
-    cartItems: CartItem[];
+  cartItems: CartItem[];
 }
 
 interface AddItemPayload {
-    item: CartItem;
+  item: CartItem;
 }
 
 interface DeleteItemPayload {
-    itemId: string;
+  itemId: string;
 }
 
 interface UpdateItemQuantityPayload {
-    itemId: string;
-    quantity: number;
+  itemId: string;
+  quantity: number;
 }
 
 const initState: CartState = {
-    cartItems: []
-}
+  cartItems: [],
+};
 
 export const cartSlice = createSlice({
-    name: 'cart',
-    initialState: initState,
-    reducers: {
-        addItem: (state, action: PayloadAction<AddItemPayload>) => {
-            console.log('tuka li si')
-            const newItem = action.payload.item;
-            state.cartItems.push(newItem)
-            return state;
-        },
-        deleteItem: (state, action: PayloadAction<DeleteItemPayload>) => {
-            const idToDelete = action.payload.itemId;
-            const newCartState = state.cartItems.filter((item) => item.id !== idToDelete);
-            state.cartItems = newCartState;
-            return state;
-        },
-        updateItemQuantity: (state, action: PayloadAction<UpdateItemQuantityPayload>) => {
-            const idxOfItem = state.cartItems.findIndex((item) => item.id === action.payload.itemId);
-            if( idxOfItem !== -1) state.cartItems[idxOfItem].quantity = action.payload.quantity;
-            return state;
-        }
-    }
-  });
+  name: "cart",
+  initialState: initState,
+  reducers: {
+    addItem: (state, action: PayloadAction<AddItemPayload>) => {
+      const newItem = action.payload.item;
+      state.cartItems.push(newItem);
+      return state;
+    },
+    deleteItem: (state, action: PayloadAction<DeleteItemPayload>) => {
+      const idToDelete = action.payload.itemId;
+      const newCartState = state.cartItems.filter(
+        (item) => item.id !== idToDelete
+      );
+      state.cartItems = newCartState;
+      return state;
+    },
+    updateItemQuantity: (
+      state,
+      action: PayloadAction<UpdateItemQuantityPayload>
+    ) => {
+      const idxOfItem = state.cartItems.findIndex(
+        (item) => item.id === action.payload.itemId
+      );
+      if (idxOfItem !== -1)
+        state.cartItems[idxOfItem].quantity = action.payload.quantity;
+      return state;
+    },
+  },
+});
 
-  export const { reducer: cartReducer, actions: cartActions } = cartSlice;
+export const { reducer: cartReducer, actions: cartActions } = cartSlice;
