@@ -4,19 +4,21 @@ import { Dispatch } from "@reduxjs/toolkit";
 
 export const addNewCartItem = (dispatch: Dispatch) => {
   return (newItem: CartItem) => {
-    console.log("invoke?");
     dispatch(cartActions.addItem({ item: newItem }));
   };
 };
 
-export const deleteCartItem = () => {
+export const deleteCartItem = (dispatch: Dispatch) => {
   return (itemId: string) => {
-    cartActions.deleteItem({ itemId: itemId });
+    dispatch(cartActions.deleteItem({ itemId: itemId }));
   };
 };
 
-export const updateCartItemQuantity = () => {
+export const updateCartItemQuantity = (dispatch: Dispatch) => {
   return (itemId: string, newQuantity: number) => {
-    cartActions.updateItemQuantity({ itemId: itemId, quantity: newQuantity });
+    if (newQuantity === 0) dispatch(cartActions.deleteItem({ itemId: itemId }));
+    dispatch(
+      cartActions.updateItemQuantity({ itemId: itemId, quantity: newQuantity })
+    );
   };
 };

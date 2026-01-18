@@ -1,7 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import styles from "./MiniCart.module.scss";
-import { products } from "@/app/resources/products";
 import MiniProduct from "./MiniProduct/MiniProduct";
 import { useSelector } from "react-redux";
 import { selectCartItems } from "@/store/cart/selectors";
@@ -26,8 +25,8 @@ const MiniCart = (props: MiniCartProps) => {
         />
       </div>
       <div className={styles.productsContainer}>
-        {products.map((product) => (
-          <MiniProduct key={`mini-${product.id}`} product={cartItems[0]} />
+        {cartItems.map((cartItem) => (
+          <MiniProduct key={`mini-${cartItem.id}`} product={cartItem} />
         ))}
       </div>
     </section>
