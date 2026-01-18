@@ -1,0 +1,27 @@
+.sideNavigation {
+  background-color: var(--secondary-background-clr);
+  margin-top: 1rem;
+  border: 1px solid var(--border-clr);
+  padding: 10px 15px;
+  height: fit-content;
+  justify-self: center;
+  width: 80%;
+}
+
+.navTitle {
+  font-size: 1.4rem;
+}
+
+.categoryList {
+  * {
+    cursor: pointer;
+
+    &:not(:first-child) {
+      margin-top: 0.5rem;
+    }
+
+    &:hover {
+      font-weight: bold;
+    }
+  }
+}

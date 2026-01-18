@@ -1,0 +1,8 @@
+.mainContainer {
+  display: grid;
+  height: calc(100vh - var(--header-height));
+  gap: 2rem;
+  padding: 10px 35px;
+  width: 100%;
+  grid-template-columns: 1fr 3fr;
+}

@@ -1,0 +1,8 @@
+@use "../styles/reset.module.scss";
+@use "../styles/tokens.module.scss";
+
+body {
+  background-color: var(--background-clr);
+  display: grid;
+  grid-template-rows: 50px 1fr;
+}

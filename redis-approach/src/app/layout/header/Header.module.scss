@@ -1,0 +1,52 @@
+.header {
+  height: var(--header-height);
+  padding: 10px 15px;
+  background-color: var(--secondary-background-clr);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid var(--border-clr);
+}
+
+.elementsContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 900px;
+  margin-right: 5rem;
+}
+
+.linkContainer {
+  display: flex;
+  width: 250px;
+  justify-content: space-between;
+}
+
+.buttonContainer {
+  display: flex;
+  width: 300px;
+}
+
+.cartContainer {
+  margin-left: 1rem;
+  width: 150px;
+  position: relative;
+}
+
+.cartBtnContents {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+  &:hover {
+    .chevronIcon {
+      transform: rotate(-180deg);
+      transition: 300ms ease all;
+    }
+  }
+}
+
+.icon {
+  width: 1rem;
+  height: 1rem;
+}
