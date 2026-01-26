@@ -24,6 +24,7 @@ const MiniProduct = ({ product }: MiniProductProps) => {
     deleteCartItem(dispatch)(id);
   };
 
+  console.log(quantity);
   return (
     <div className={styles.miniProductContainer}>
       <div className={styles.productImageContainer}>
@@ -40,7 +41,7 @@ const MiniProduct = ({ product }: MiniProductProps) => {
         <input
           name="product-qty"
           type="number"
-          defaultValue={quantity}
+          value={quantity}
           min={0}
           max={99}
           step={1}
