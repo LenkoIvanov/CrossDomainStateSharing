@@ -8,8 +8,14 @@ import { CartItem } from "@/types/CartItem";
 import { fetchFromLocalStorage } from "@/utils/localStorage";
 import { useDispatch } from "react-redux";
 import { loadCartItems } from "@/store/cart/operations";
+import { SyncDomains } from "../common/SyncDomains";
+import { domainOne, domainTwo } from "@/utils/syncDomains";
 
-const Main = () => {
+interface Props {
+  isFirstSubDomain: boolean;
+}
+
+const Main = ({ isFirstSubDomain }: Props) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -21,6 +27,7 @@ const Main = () => {
 
   return (
     <section className={styles.mainContainer}>
+      <SyncDomains targetDomain={isFirstSubDomain ? domainTwo : domainOne} />
       <SideNavigation />
       <ProductGrid />
     </section>
