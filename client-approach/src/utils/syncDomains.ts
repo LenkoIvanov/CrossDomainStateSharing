@@ -1,6 +1,7 @@
 export const dispatchUpdateEventType = "dispatchUpdate";
 
 export const IframePayloadEventKey = "IncomingLocalStorageItems";
+export const IframeHandshakeEventType = "SYNC_READY";
 
 // Explicitly disabled due to untyped action in middleware
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
