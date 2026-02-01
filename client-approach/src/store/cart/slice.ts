@@ -7,19 +7,23 @@ export interface CartState {
 
 interface AddItemPayload {
   item: CartItem;
+  iframeEventDispatchFlag: boolean;
 }
 
 interface DeleteItemPayload {
   itemId: string;
+  iframeEventDispatchFlag: boolean;
 }
 
 interface UpdateItemQuantityPayload {
   itemId: string;
   quantity: number;
+  iframeEventDispatchFlag: boolean;
 }
 
 interface LoadItemsPayload {
   items: CartItem[];
+  iframeEventDispatchFlag: boolean;
 }
 
 const initState: CartState = {

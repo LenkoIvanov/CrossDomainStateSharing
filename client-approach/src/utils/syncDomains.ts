@@ -1,14 +1,30 @@
-export const domainOne = "https://sub1.clientapp.vercel.com";
+export const dispatchUpdateEventType = "dispatchUpdate";
 
-export const domainTwo = "https://sub2.clientapp.vercel.com";
+export const IframePayloadEventKey = "IncomingLocalStorageItems";
 
-export const localOne = "http://iframe1.local.test:3000";
+// Explicitly disabled due to untyped action in middleware
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const shouldDispatchIframeEvent = (actionObject: any): boolean => {
+  const isPayloadInActionObject =
+    typeof actionObject === "object" &&
+    actionObject !== null &&
+    "payload" in actionObject &&
+    actionObject.payload !== "undefined";
 
-export const localTwo = "http://iframe2.local.test:3001";
+  if (!isPayloadInActionObject) return false;
 
-export const isDomainOne = (currentSubDomain: string) => {
-  // "sub1"
-  if (currentSubDomain === "iframe1") return true;
+  const isDispatchEventFlagInActionObject =
+    typeof actionObject.payload === "object" &&
+    actionObject.payload !== null &&
+    "iframeEventDispatchFlag" in actionObject.payload;
+
+  if (!isDispatchEventFlagInActionObject) return false;
+
+  const isDispatchFlagTrue =
+    typeof actionObject.payload.iframeEventDispatchFlag === "boolean" &&
+    actionObject.payload.iframeEventDispatchFlag === true;
+
+  if (isDispatchFlagTrue) return true;
 
   return false;
 };

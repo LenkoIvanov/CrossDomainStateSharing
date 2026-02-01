@@ -7,7 +7,7 @@ export const syncLocalStorageState = (cartItems: CartItem[]) => {
   localStorage.setItem(localStorageKey, payload);
 };
 
-export const fetchFromLocalStorage = (): CartItem[] => {
+export const fetchCartItemsFromLocalStorage = (): CartItem[] => {
   const localStorageState = localStorage.getItem(localStorageKey);
   const localCartItems: CartItem[] = localStorageState
     ? parseCartItems(localStorageState)

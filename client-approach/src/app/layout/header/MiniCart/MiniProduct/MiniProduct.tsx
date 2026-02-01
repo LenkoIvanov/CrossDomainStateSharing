@@ -24,7 +24,6 @@ const MiniProduct = ({ product }: MiniProductProps) => {
     deleteCartItem(dispatch)(id);
   };
 
-  console.log(quantity);
   return (
     <div className={styles.miniProductContainer}>
       <div className={styles.productImageContainer}>
