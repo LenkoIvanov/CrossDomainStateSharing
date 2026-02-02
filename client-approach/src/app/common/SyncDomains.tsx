@@ -1,4 +1,8 @@
-import { fetchCartItemsFromLocalStorage } from "@/utils/localStorage";
+import { CartItem } from "@/types/CartItem";
+import {
+  fetchCartItemsFromLocalStorage,
+  syncLocalStorageState,
+} from "@/utils/localStorage";
 import {
   IframeHandshakeEventType,
   IframePayloadEventKey,
@@ -20,6 +24,8 @@ export const SyncDomains = () => {
       console.log(
         `Successfully received from ${ev.origin} with cartItems ${ev.data.value}`,
       );
+      const cartItems: CartItem[] = ev.data.value;
+      syncLocalStorageState(cartItems);
     }
   };
 
