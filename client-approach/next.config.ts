@@ -11,7 +11,7 @@ const nextConfig: NextConfig = {
           {
             key: "Content-Security-Policy",
             value:
-              "frame-ancestors 'self' https://domain-1-client-approach.vercel.app https://domain-2-client-approach.vercel.app",
+              "frame-ancestors 'self' https://sub1.lenko.space https://sub2.lenko.space",
           },
         ],
       },
