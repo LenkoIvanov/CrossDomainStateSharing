@@ -27,6 +27,7 @@ const logger = createLogger({
     new transports.Console({
       format: format.combine(
         capitalizeLevel(),
+        format.splat(),
         format.colorize(),
         format.timestamp({ format: 'DD.MM.YY - HH:mm:ss' }),
         logFormat

@@ -4,7 +4,7 @@
   "description": "A proxy server to locally connect a web app to a Redis instance",
   "main": "index.js",
   "scripts": {
-    "serve": "npx tsx index.ts",
+    "serve": "npx tsx src/index.ts",
     "build": "tsc",
     "start": "node dist/index.js",
     "lint": "eslint .",
@@ -28,6 +28,7 @@
   "dependencies": {
     "cors": "^2.8.6",
     "express": "^5.2.1",
-    "winston": "^3.19.0"
+    "winston": "^3.19.0",
+    "zod": "^4.3.6"
   }
 }

@@ -4,25 +4,24 @@ import { useEffect } from "react";
 import styles from "./Main.module.scss";
 import ProductGrid from "./ProductGrid/ProductGrid";
 import SideNavigation from "./SideNavigation/SideNavigation";
+import {
+  fetchCartDataFromCache,
+  postCartDataToCache,
+} from "@/api/localService";
 
 const Main = () => {
   useEffect(() => {
-    fetch("http://localhost:3001/cartInfo", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        id: "dsdsdfsdjkfhsdjkhds",
-        cartData: [
-          {
-            id: "wdfjsdkf",
-            name: "Default",
-            qty: 2,
-          },
-        ],
-      }),
-    });
+    const dummyPost = async () => {
+      await postCartDataToCache("jds34njh234324", [
+        { itemId: "w4234324", itemQty: 3 },
+      ]);
+    };
+
+    const dummyFetch = async () => {
+      await fetchCartDataFromCache("jds34njh234324");
+    };
+
+    dummyPost().then(dummyFetch);
   }, []);
 
   return (
