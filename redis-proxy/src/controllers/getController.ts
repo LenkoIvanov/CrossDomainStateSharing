@@ -1,7 +1,8 @@
 import { type Request, type Response } from 'express';
 import logger from '../singletons/logger.js';
+import { redisService } from '../services/redisService.js';
 
-export const getController = (req: Request, resp: Response) => {
+export const getController = async (req: Request, resp: Response) => {
   try {
     const { sessionId } = req.params;
 
@@ -11,7 +12,9 @@ export const getController = (req: Request, resp: Response) => {
 
     logger.info(`Fetching data for ${sessionId}.`);
 
-    // redis service logic
+    const cachedEntry = await redisService.fetchEntryFromCache(sessionId);
+    // eslint-disable-next-line no-console
+    console.log('Cached Redis entry is: ', cachedEntry);
 
     return resp.status(200).json({ message: `Cached data for ${sessionId}` });
   } catch (err) {

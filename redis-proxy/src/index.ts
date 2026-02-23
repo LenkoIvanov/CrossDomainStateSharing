@@ -4,6 +4,7 @@ import cors from 'cors';
 import { PORT_NUMBER } from './helpers/serverConfigs.js';
 import { postController } from './controllers/postController.js';
 import { getController } from './controllers/getController.js';
+import { localRedisClient } from './redis_clients/localRedisClient.js';
 
 logger.info('Server has started!');
 
@@ -15,6 +16,17 @@ server.post('/cartInfo', (req: Request, resp: Response) => postController(req, r
 
 server.get('/cartInfo/:sessionId', (req: Request, resp: Response) => getController(req, resp));
 
-server.listen(PORT_NUMBER, () => {
-  logger.info('Server started listening on port 3001');
-});
+async function startServer() {
+  try {
+    await localRedisClient.connect();
+
+    server.listen(PORT_NUMBER, () => {
+      logger.info('Server started listening on port 3001.');
+    });
+  } catch (error) {
+    logger.error('A fatal error occurred during server startup.');
+    process.exit(1);
+  }
+}
+
+startServer();
