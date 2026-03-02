@@ -8,7 +8,7 @@ export const getSessionIdFromCookie = () => {
 
 export const setSessionIdCookie = (sessionId: string) => {
   Cookies.set(SESSION_ID_COOKIE_NAME, sessionId, {
-    // domain: DOMAIN_NAME,
+    domain: DOMAIN_NAME,
     expires: 1,
     secure: true,
     sameSite: "Lax",
