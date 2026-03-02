@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import styles from "./Main.module.scss";
 import ProductGrid from "./ProductGrid/ProductGrid";
 import SideNavigation from "./SideNavigation/SideNavigation";
@@ -11,8 +11,6 @@ import { useDispatch } from "react-redux";
 import { loadCartItems } from "@/store/cart/operations";
 
 const Main = () => {
-  const isMountedRef = useRef<boolean>(false);
-
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -33,11 +31,6 @@ const Main = () => {
   }, [dispatch]);
 
   useEffect(() => {
-    if (!isMountedRef.current) {
-      isMountedRef.current = true;
-      return;
-    }
-
     const sessionId = getSessionIdFromCookie();
 
     if (!sessionId) return;
