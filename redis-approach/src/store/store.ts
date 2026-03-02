@@ -1,13 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { CartState, cartReducer } from "./cart/slice";
+import { cartReducer } from "./cart/slice";
+import { dispatchUpdateToServer } from "./middleware/dispatchUpdateToServer";
 
-interface StoreState {
-  cart: CartState;
-}
-
-export const store = configureStore<StoreState>({
+export const store = configureStore({
   reducer: {
     cart: cartReducer,
+  },
+  middleware: (getDefaultMiddleware) => {
+    return getDefaultMiddleware().concat(dispatchUpdateToServer);
   },
 });
 

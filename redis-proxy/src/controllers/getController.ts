@@ -13,11 +13,11 @@ export const getController = async (req: Request, resp: Response) => {
     logger.info(`Fetching data for ${sessionId}.`);
 
     const cachedEntry = await redisService.fetchEntryFromCache(sessionId);
-    // eslint-disable-next-line no-console
-    console.log('Cached Redis entry is: ', cachedEntry);
 
-    return resp.status(200).json({ message: `Cached data for ${sessionId}` });
+    logger.info(`Fetch for ${sessionId} is successful.`);
+    return resp.status(200).json({ data: cachedEntry });
   } catch (err) {
-    return resp.status(500).json({ message: 'An error occured during cache retriebal' });
+    logger.info(`An error was encountered during cache retrieval.`);
+    return resp.status(500).json({ message: 'An error occurred during cache retrieval.' });
   }
 };

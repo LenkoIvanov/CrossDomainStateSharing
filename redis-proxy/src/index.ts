@@ -5,6 +5,7 @@ import { PORT_NUMBER } from './helpers/serverConfigs.js';
 import { postController } from './controllers/postController.js';
 import { getController } from './controllers/getController.js';
 import { localRedisClient } from './redis_clients/localRedisClient.js';
+import { streamController } from './controllers/streamController.js';
 
 logger.info('Server has started!');
 
@@ -15,6 +16,8 @@ server.use(express.json());
 server.post('/cartInfo', (req: Request, resp: Response) => postController(req, resp));
 
 server.get('/cartInfo/:sessionId', (req: Request, resp: Response) => getController(req, resp));
+
+server.get('/stream/:sessionId', (req: Request, resp: Response) => streamController(req, resp));
 
 async function startServer() {
   try {

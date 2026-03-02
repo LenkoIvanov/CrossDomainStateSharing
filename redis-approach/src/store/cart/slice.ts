@@ -18,6 +18,10 @@ interface UpdateItemQuantityPayload {
   quantity: number;
 }
 
+interface LoadItemsPayload {
+  cartItems: CartItem[];
+}
+
 const initState: CartState = {
   cartItems: [],
 };
@@ -49,6 +53,9 @@ export const cartSlice = createSlice({
       if (idxOfItem !== -1)
         state.cartItems[idxOfItem].quantity = action.payload.quantity;
       return state;
+    },
+    loadItems: (state, action: PayloadAction<LoadItemsPayload>) => {
+      state.cartItems = action.payload.cartItems;
     },
   },
 });
