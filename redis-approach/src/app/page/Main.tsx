@@ -36,7 +36,7 @@ const Main = () => {
     if (!sessionId) return;
 
     const eventSource = new EventSource(
-      `http://localhost:3001/stream/${sessionId}`
+      `${process.env.NEXT_BASE_URL}/stream/${sessionId}`
     );
 
     eventSource.onmessage = async (event) => {
