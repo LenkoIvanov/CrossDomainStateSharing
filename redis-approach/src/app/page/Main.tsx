@@ -36,7 +36,7 @@ const Main = () => {
     if (!sessionId) return;
 
     const eventSource = new EventSource(
-      `${process.env.NEXT_BASE_URL}/stream/${sessionId}`
+      `${process.env.NEXT_PUBLIC_BASE_URL}/stream/${sessionId}`
     );
 
     eventSource.onmessage = async (event) => {
