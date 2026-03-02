@@ -40,7 +40,7 @@ const MiniProduct = ({ product }: MiniProductProps) => {
         <input
           name="product-qty"
           type="number"
-          defaultValue={quantity}
+          value={quantity}
           min={0}
           max={99}
           step={1}
