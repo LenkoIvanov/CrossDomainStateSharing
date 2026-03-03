@@ -1,5 +1,6 @@
 import { APICartData, postCartDataToCache } from "@/api/localService";
 import { getSessionIdFromCookie } from "@/utils/cookies";
+import { shouldDispatchServerUpdate } from "@/utils/storeUtils";
 import { Middleware } from "@reduxjs/toolkit";
 
 export const dispatchUpdateToServer: Middleware =
@@ -7,7 +8,7 @@ export const dispatchUpdateToServer: Middleware =
     const nextAction = next(action);
     const cartItems = store.getState().cart.cartItems;
     const sessionId = getSessionIdFromCookie();
-    if (sessionId) {
+    if (shouldDispatchServerUpdate(action) && sessionId) {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const cartData: APICartData[] = cartItems.map((cartItem: any) => {
         return {

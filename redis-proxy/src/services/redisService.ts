@@ -15,7 +15,8 @@ class RedisService {
 
   async publishCacheUpdate(sessionId: string, message: string) {
     const channel = `cart-update:${sessionId}`;
-    await localRedisClient.publish(channel, message);
+    const count = await localRedisClient.publish(channel, message);
+    logger.info(`SUBSCRIBER COUNT ${count}`);
     logger.info(`Broadcasted update for session: ${sessionId}`);
   }
 

@@ -23,7 +23,7 @@ async function startServer() {
   try {
     await localRedisClient.connect();
 
-    server.listen(PORT_NUMBER, () => {
+    server.listen(PORT_NUMBER, '0.0.0.0', () => {
       logger.info('Server started listening on port 3001.');
     });
   } catch (error) {

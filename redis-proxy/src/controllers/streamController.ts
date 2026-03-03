@@ -25,6 +25,10 @@ export const streamController = async (req: Request, resp: Response) => {
       resp.write(': heartbeat\n\n');
     }, 30000);
 
+    req.on('open', () => {
+      redisService.publishCacheUpdate(sessionId, 'refresh');
+    });
+
     req.on('close', async () => {
       clearInterval(heartbeat);
       try {

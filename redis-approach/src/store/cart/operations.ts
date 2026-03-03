@@ -16,16 +16,21 @@ export const addNewCartItem = (dispatch: Dispatch) => {
         cartActions.updateItemQuantity({
           itemId: newItem.id,
           quantity: matchingItemInState.quantity + 1,
+          shouldPostUpdateFlag: true,
         })
       );
     }
-    dispatch(cartActions.addItem({ item: newItem }));
+    dispatch(
+      cartActions.addItem({ item: newItem, shouldPostUpdateFlag: true })
+    );
   };
 };
 
 export const deleteCartItem = (dispatch: Dispatch) => {
   return (itemId: string) => {
-    dispatch(cartActions.deleteItem({ itemId: itemId }));
+    dispatch(
+      cartActions.deleteItem({ itemId: itemId, shouldPostUpdateFlag: true })
+    );
   };
 };
 
@@ -35,12 +40,14 @@ export const updateCartItemQuantity = (dispatch: Dispatch) => {
       dispatch(
         cartActions.deleteItem({
           itemId: itemId,
+          shouldPostUpdateFlag: true,
         })
       );
     dispatch(
       cartActions.updateItemQuantity({
         itemId: itemId,
         quantity: newQuantity,
+        shouldPostUpdateFlag: true,
       })
     );
   };
@@ -68,6 +75,7 @@ export const loadCartItems = (dispatch: Dispatch) => {
     dispatch(
       cartActions.loadItems({
         cartItems: cartItems,
+        shouldPostUpdateFlag: false,
       })
     );
   };
