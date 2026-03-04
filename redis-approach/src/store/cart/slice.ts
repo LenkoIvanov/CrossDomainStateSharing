@@ -7,19 +7,23 @@ export interface CartState {
 
 interface AddItemPayload {
   item: CartItem;
+  shouldPostUpdateFlag: boolean;
 }
 
 interface DeleteItemPayload {
   itemId: string;
+  shouldPostUpdateFlag: boolean;
 }
 
 interface UpdateItemQuantityPayload {
   itemId: string;
   quantity: number;
+  shouldPostUpdateFlag: boolean;
 }
 
 interface LoadItemsPayload {
   cartItems: CartItem[];
+  shouldPostUpdateFlag: boolean;
 }
 
 const initState: CartState = {
