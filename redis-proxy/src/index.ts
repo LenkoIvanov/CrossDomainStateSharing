@@ -10,7 +10,11 @@ import { streamController } from './controllers/streamController.js';
 logger.info('Server has started!');
 
 const server = express();
-server.use(cors());
+server.use(
+  cors({
+    origin: ['https://red1.lenko.space', 'https://red2.lenko.space'],
+  })
+);
 server.use(express.json());
 
 server.post('/cartInfo', (req: Request, resp: Response) => postController(req, resp));

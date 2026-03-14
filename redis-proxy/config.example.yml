@@ -1,0 +1,12 @@
+tunnel: YOUR_TUNNEL_UUID_HERE
+
+# MAC: /Users/YOUR_MAC_USER/.cloudflared/YOUR_TUNNEL_UUID_HERE.json
+# WIN: "C:\Users\YOUR_WINDOWS_USER\.cloudflared\YOUR_TUNNEL_UUID_HERE.json"
+credentials-file: YOUR_PATH_HERE
+
+# 3. Ingress Rules: This defines how Cloudflare routes traffic to your local ports
+ingress:
+  # Example 1: Your main API proxy
+  - hostname: api.lenko.space
+    service: http://localhost:3001
+  - service: http_status:404
